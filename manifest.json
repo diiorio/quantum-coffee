@@ -1,0 +1,43 @@
+{
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "short_name": "__MSG_extensionShortName__",
+  "version": "1.0.0",
+  "description": "__MSG_extensionDescription__",
+  "developer": {
+    "name": "Diiorio",
+    "url": "https://github.com/Diiorio/quantum-coffee"
+  },
+  "icons": {
+    "16": "icons/coffee.svg"
+  },
+  "default_locale": "en",
+  "permissions": ["storage", "bookmarks", "tabs", "activeTab", "contextMenus"],
+  "options_ui": {
+    "page": "options/options.html",
+    "browser_style": true
+  },
+  "browser_action": {
+    "browser_style": true,
+    "default_area": "navbar",
+    "default_icon": {
+      "16": "icons/coffee.svg"
+    },
+    "default_title": "__MSG_extensionActionTitle__"
+  },
+  "background": {
+    "scripts": ["lib/days.js", "lib/Settings.js", "lib/validate.js", "background/action.js", "background/menus.js"]
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+C"
+      }
+    }
+  },
+  "applications": {
+    "gecko": {
+      "id": "quantum-coffee@diiorio.github.io"
+    }
+  }
+}

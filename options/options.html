@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="chrome://browser/content/extension.css">
+  <link rel="stylesheet" href="options.css">
+  <title>Quantum Coffee Options</title>
+  <script defer src="../lib/days.js"></script>
+  <script defer src="../lib/Settings.js"></script>
+  <script defer src="../lib/validate.js"></script>
+  <script defer src="options.js"></script>
+</head>
+<body>
+  <div class="browser-style">
+    <span class="i18n" data-i18n-message="viewSelector"></span>
+    <button id="days-view-btn" class="i18n browser-style default pressed" data-i18n-message="daysViewButton"></button>
+    <button id="pages-view-btn" class="browser-style i18n" data-i18n-message="pagesViewButton"></button>
+  </div>
+  <div id="days-view" class="hidden">
+    <select id="day-menu" class="block browser-style hover">
+      <option value="1" class="i18n" data-i18n-message="daysViewSunday"></option>
+      <option value="2" class="i18n" data-i18n-message="daysViewMonday"></option>
+      <option value="4" class="i18n" data-i18n-message="daysViewTuesday"></option>
+      <option value="8" class="i18n" data-i18n-message="daysViewWednesday"></option>
+      <option value="16" class="i18n" data-i18n-message="daysViewThursday"></option>
+      <option value="32" class="i18n" data-i18n-message="daysViewFriday"></option>
+      <option value="64" class="i18n" data-i18n-message="daysViewSaturday"></option>
+      <option disabled>─────</option>
+      <option value="127" class="i18n" data-i18n-message="daysViewDaily" selected></option>
+      <option value="42" class="i18n" data-i18n-message="daysViewMWF"></option>
+      <option value="20" class="i18n" data-i18n-message="daysViewTTh"></option>
+      <option value="62" class="i18n" data-i18n-message="daysViewWeekdays"></option>
+      <option value="65" class="i18n" data-i18n-message="daysViewWeekends"></option>
+    </select>
+    <select id="day-page-list" class="browser-style" multiple>
+    </select>
+    <div id="day-sidebar">
+      <button id="day-up" class="block browser-style disabled" disabled>&#x25B2;</button>
+      <button id="day-down" class="block browser-style disabled" disabled>&#x25BC;</button>
+      <button id="day-edit-loader" class="block browser-style disabled i18n" data-i18n-message="editLoader" disabled></button>
+      <button id="day-delete" class="block browser-style disabled i18n" data-i18n-message="deleteButton" disabled></button>
+    </div>
+    <div class="browser-style">
+      <input id="day-add-input" class="i18n" type="text" data-i18n-type="placeholder" data-i18n-message="daysNewPagePlaceholder">
+      <button id="day-add-btn" class="browser-style disabled i18n" data-i18n-message="daysAddButton" disabled></button>
+      <input id="day-edit-input" class="disabled i18n" type="text" data-i18n-type="placeholder" data-i18n-message="editPagePlaceholder" disabled>
+      <button id="day-edit-save" class="browser-style disabled i18n" data-i18n-message="editSaver" disabled></button>
+    </div>
+  </div>
+
+  <div id="pages-view" class="hidden">
+    <div class="table">
+      <div class="header row">
+        <div class="cell">◆</div>
+        <div class="wide cell i18n" data-i18n-message="pageColumnHeader"></div>
+        <div class="cell i18n" data-i18n-message="pagesViewSunday"></div>
+        <div class="cell i18n" data-i18n-message="pagesViewMonday"></div>
+        <div class="cell i18n" data-i18n-message="pagesViewTuesday"></div>
+        <div class="cell i18n" data-i18n-message="pagesViewWednesday"></div>
+        <div class="cell i18n" data-i18n-message="pagesViewThursday"></div>
+        <div class="cell i18n" data-i18n-message="pagesViewFriday"></div>
+        <div class="cell i18n" data-i18n-message="pagesViewSaturday"></div>
+        <div class="divider cell i18n" data-i18n-message="pagesViewDaily"></div>
+        <div class="cell i18n" data-i18n-message="pagesViewMWF"></div>
+        <div class="cell i18n" data-i18n-message="pagesViewTTh"></div>
+        <div class="cell i18n" data-i18n-message="pagesViewWeekdays"></div>
+        <div class="cell i18n" data-i18n-message="pagesViewWeekends"></div>
+      </div>
+    </div>
+    <button id="page-add-btn" class="browser-style i18n" data-i18n-message="pagesAddButton"></button>
+  </div>
+  <div class="padded browser-style">
+  <input id="randomize" type="checkbox">
+  <label for="randomize" class="i18n" data-i18n-message="randomize"></label>
+  </div>
+  <div class="browser-style">
+  <input id="close-tabs" type="checkbox">
+  <label for="close-tabs" class="i18n" data-i18n-message="closeTabs"></label>
+  <div class="padded browser-style">
+    <input id="bookmarks-folder" class="i18n" type="text" data-i18n-type="placeholder" data-i18n-message="bookmarkPlaceholder">
+    <button id="bookmarks-import" class="browser-style disabled i18n" data-i18n-message="bookmarksImportButton" disabled></button>
+    <button id="bookmarks-export" class="browser-style disabled i18n" data-i18n-message="bookmarksExportButton" disabled></button>
+    <button id="bookmarks-help" class="browser-style i18n" data-i18n-message="bookmarksHelpButton"></button>
+    <div id="bookmarks-message"></div>
+  </div>
+  </div>
+</body>
+
+</html>

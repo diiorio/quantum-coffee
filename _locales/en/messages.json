@@ -1,0 +1,342 @@
+{
+  "extensionName": {
+    "message": "Quantum Coffee",
+    "description": "Name of the extension."
+  },
+  "extensionDescription": {
+    "message": "Open your daily routine with just one click. Customize each day of the week to launch a different set of pages.",
+    "description": "Description of the extension."
+  },
+  "extensionShortName": {
+    "message": "Quantum Coff",
+    "description": "Short name of the extension. Should not exceed 12 characters."
+  },
+  "extensionActionTitle": {
+    "message": "Open Quantum Coffee pages",
+    "description": "Tooltip for the browser action button."
+  },
+
+  "daysViewSunday": {
+    "message": "Sunday",
+    "description": "Menu item in options day selection for pages opened on Sunday."
+  },
+  "daysViewMonday": {
+    "message": "Monday",
+    "description": "Menu item in options day selection for pages opened on Monday."
+  },
+  "daysViewTuesday": {
+    "message": "Tuesday",
+    "description": "Menu item in options day selection for pages opened on Tuesday."
+  },
+  "daysViewWednesday": {
+    "message": "Wednesday",
+    "description": "Menu item in options day selection for pages opened on Wednesday."
+  },
+  "daysViewThursday": {
+    "message": "Thursday",
+    "description": "Menu item in options day selection for pages opened on Thursday."
+  },
+  "daysViewFriday": {
+    "message": "Friday",
+    "description": "Menu item in options day selection for pages opened on Friday."
+  },
+  "daysViewSaturday": {
+    "message": "Saturday",
+    "description": "Menu item in options day selection for pages opened on Saturday."
+  },
+  "daysViewDaily": {
+    "message": "Daily",
+    "description": "Menu item in options day selection for pages opened daily."
+  },
+  "daysViewMWF": {
+    "message": "Mon/Wed/Fri",
+    "description": "Menu item in options day selection for pages opened on Monday/Wednesday/Friday."
+  },
+  "daysViewTTh": {
+    "message": "Tues/Thurs",
+    "description": "Menu item in options day selection for pages opened on Tuesday/Thursday."
+  },
+  "daysViewWeekdays": {
+    "message": "Weekdays",
+    "description": "Menu item in options day selection for pages opened on weekdays."
+  },
+  "daysViewWeekends": {
+    "message": "Weekends",
+    "description": "Menu item in options day selection for pages opened on weekends."
+  },
+
+  "pagesViewSunday": {
+    "message": "S",
+    "description": "Column header for options page list for pages opened on Sunday."
+  },
+  "pagesViewMonday": {
+    "message": "M",
+    "description": "Column header for options page list for pages opened on Monday."
+  },
+  "pagesViewTuesday": {
+    "message": "T",
+    "description": "Column header for options page list for pages opened on Tuesday."
+  },
+  "pagesViewWednesday": {
+    "message": "W",
+    "description": "Column header for options page list for pages opened on Wednesday."
+  },
+  "pagesViewThursday": {
+    "message": "T",
+    "description": "Column header for options page list for pages opened on Thursday."
+  },
+  "pagesViewFriday": {
+    "message": "F",
+    "description": "Column header for options page list for pages opened on Friday."
+  },
+  "pagesViewSaturday": {
+    "message": "S",
+    "description": "Column header for options page list for pages opened on Saturday."
+  },
+  "pagesViewDaily": {
+    "message": "Daily",
+    "description": "Column header for options page list for pages opened daily."
+  },
+  "pagesViewMWF": {
+    "message": "M/W/F",
+    "description": "Column header for options page list for pages opened on Monday/Wednesday/Friday."
+  },
+  "pagesViewTTh": {
+    "message": "T/Th",
+    "description": "Column header for options page list for pages opened on Tuesday/Thursday."
+  },
+  "pagesViewWeekdays": {
+    "message": "M-F",
+    "description": "Column header for options page list for pages opened on weekdays."
+  },
+  "pagesViewWeekends": {
+    "message": "S/S",
+    "description": "Column header for options page list for pages opened on weekends."
+  },
+
+  "contextMenuSunday": {
+    "message": "Sunday",
+    "description": "Label for the menu item to toggle pages opened on Sunday."
+  },
+  "contextMenuMonday": {
+    "message": "Monday",
+    "description": "Label for the menu item to toggle pages opened on Monday."
+  },
+  "contextMenuTuesday": {
+    "message": "Tuesday",
+    "description": "Label for the menu item to toggle pages opened on Tuesday."
+  },
+  "contextMenuWednesday": {
+    "message": "Wednesday",
+    "description": "Label for the menu item to toggle pages opened on Wednesday."
+  },
+  "contextMenuThursday": {
+    "message": "Thursday",
+    "description": "Label for the menu item to toggle pages opened on Thursday."
+  },
+  "contextMenuFriday": {
+    "message": "Friday",
+    "description": "Label for the menu item to toggle pages opened on Friday."
+  },
+  "contextMenuSaturday": {
+    "message": "Saturday",
+    "description": "Label for the menu item to toggle pages opened on Saturday."
+  },
+  "contextMenuDaily": {
+    "message": "Daily",
+    "description": "Label for the menu item to toggle pages opened on Daily."
+  },
+  "contextMenuMWF": {
+    "message": "Mon/Wed/Fri",
+    "description": "Label for the menu item to toggle pages opened on MWF."
+  },
+  "contextMenuTTh": {
+    "message": "Tues/Thurs",
+    "description": "Label for the menu item to toggle pages opened on TTh."
+  },
+  "contextMenuWeekdays": {
+    "message": "Weekdays",
+    "description": "Label for the menu item to toggle pages opened on Weekdays."
+  },
+  "contextMenuWeekends": {
+    "message": "Weekends",
+    "description": "Label for the menu item to toggle pages opened on Weekends."
+  },
+  "contextMenuParent": {
+    "message": "Configure Quantum Coffee",
+    "description": "Label for the parent of the extension menu group."
+  },
+  "contextMenuOpenOptions": {
+    "message": "More Options",
+    "description": "Label for the menu item to open the options page."
+  },
+
+  "bookmarksSunday": {
+    "message": "Sunday",
+    "description": "Folder name of bookmark exports opened on Sunday."
+  },
+  "bookmarksMonday": {
+    "message": "Monday",
+    "description": "Folder name of bookmark exports opened on Monday."
+  },
+  "bookmarksTuesday": {
+    "message": "Tuesday",
+    "description": "Folder name of bookmark exports opened on Tuesday."
+  },
+  "bookmarksWednesday": {
+    "message": "Wednesday",
+    "description": "Folder name of bookmark exports opened on Wednesday."
+  },
+  "bookmarksThursday": {
+    "message": "Thursday",
+    "description": "Folder name of bookmark exports opened on Thursday."
+  },
+  "bookmarksFriday": {
+    "message": "Friday",
+    "description": "Folder name of bookmark exports opened on Friday."
+  },
+  "bookmarksSaturday": {
+    "message": "Saturday",
+    "description": "Folder name of bookmark exports opened on Saturday."
+  },
+  "bookmarksFolderNotFound": {
+    "message": "No bookmarks folder found for \"$NAME$\".",
+    "description": "Error message to show user when no bookmarks folder is found.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "My Folder"
+      }
+    }
+  },
+  "bookmarksFolderNotUnique": {
+    "message": "Bookmarks folder name \"$NAME$\" is not unique.",
+    "description": "Error message to show user when bookmarks folder name is not unique.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "My Folder"
+      }
+    }
+  },
+  "bookmarksFolderNotFolder": {
+    "message": "Bookmark \"$NAME$\" is not a folder.",
+    "description": "Error message to show user when bookmark is not a folder.",
+    "placeholders": {
+      "name": {
+        "content": "$1",
+        "example": "My Bookmark"
+      }
+    }
+  },
+
+  "bookmarkPlaceholder": {
+    "message": "Bookmarks Folder",
+    "description": "Placholder text for the bookmarks import/export input."
+  },
+  "bookmarksImportButton": {
+    "message": "Import",
+    "description": "Label for the import bookmarks button."
+  },
+  "bookmarksExportButton": {
+    "message": "Export",
+    "description": "Label for the export bookmarks button."
+  },
+  "bookmarksHelpButton": {
+    "message": "?",
+    "description": "Label for the bookmarks help button."
+  },
+  "bookmarksImportHelp": {
+    "message": "To import bookmarks, enter a unique folder name. Pages within this folder are assumed to be daily pages. The first seven subfolders in the folder given are assumed to correspond to days of the week, starting with Sunday. Subfolders after the first seven are ignored. Pages within each subfolder will be added to that day's list. Any folders within subfolders are ignored.",
+    "description": "Help message explaining how bookmarks import works."
+  },
+  "bookmarksExportHelp": {
+    "message": "To export bookmarks, enter a new folder name. The folder will be added to your bookmarks bar with 7 subfolders, Sunday to Monday. Each subfolder will contain the pages to be opened on that day.",
+    "description": "Help message explaining how bookmarks export works."
+  },
+
+  "closeTabs": {
+    "message": "Close other tabs on open",
+    "description": "Label for the close other tabs checkbox."
+  },
+  "daysAddButton": {
+    "message": "Add",
+    "description": "Label for the Days view add URL button."
+  },
+  "daysNewPagePlaceholder": {
+    "message": "Add new URL",
+    "description": "Placeholder text for the Days view add URL input."
+  },
+  "daysViewButton": {
+    "message": "Days",
+    "description": "Label for the button to choose the Days view."
+  },
+  "deleteButton": {
+    "message": "Delete",
+    "description": "Label for the Days view delete URL button."
+  },
+  "editLoader": {
+    "message": "Edit",
+    "description": "Label for the Days view load URL to edit button."
+  },
+  "editPagePlaceholder": {
+    "message": "Edit URL",
+    "description": "Placeholder text for the Days view edit URL input."
+  },
+  "editSaver": {
+    "message": "Edit",
+    "description": "Label for the Days view save edited URL button."
+  },
+  "extantEntry": {
+    "message": "Entry for $PAGE$ already exists.",
+    "description": "Message to alert user that a page already has an existing entry.",
+    "placeholders": {
+      "page": {
+        "content": "$1",
+        "example": "https://example.com"
+      }
+    }
+  },
+  "invalidScheme": {
+    "message": "Quantum Coffee cannot open $SCHEME$ URLs.",
+    "description": "Warning message for invalid URL scheme entries.",
+    "placeholders": {
+      "scheme": {
+        "content": "$1",
+        "example": "javascript:"
+      }
+    }
+  },
+  "pageColumnHeader": {
+    "message": "URL",
+    "description": "Column header for the Pages view URL column."
+  },
+  "pagesAddButton": {
+    "message": "Add Page",
+    "description": "Label for the Pages view add URL button."
+  },
+  "pagesNewPagePlaceholder": {
+    "message": "Enter URL",
+    "description": "Placeholder text for the Pages view URL input."
+  },
+  "pagesViewButton": {
+    "message": "Pages",
+    "description": "Label for the button to choose the Pages view."
+  },
+  "randomize": {
+    "message": "Randomize page order",
+    "description": "Label for the randomize check box."
+  },
+  "rowPlaceholder": {
+    "message": "Enter URL",
+    "description": "Placeholder text for a blank row."
+  },
+  "singleBlank": {
+    "message": "Only one row may be blank at a time.",
+    "description": "Message to alert user that a blank row already exists."
+  },
+  "viewSelector": {
+    "message": "View by:",
+    "description": "Instructions for the view selector button."
+  }
+}
