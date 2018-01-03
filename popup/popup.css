@@ -1,0 +1,12 @@
+body {
+  padding: 1em;
+}
+
+header {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+main {
+  margin: 0.5em 0 1em;
+}

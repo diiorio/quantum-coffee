@@ -2,14 +2,14 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "short_name": "__MSG_extensionShortName__",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "__MSG_extensionDescription__",
   "developer": {
     "name": "Diiorio",
-    "url": "https://github.com/Diiorio/quantum-coffee"
+    "url": "https://github.com/diiorio/quantum-coffee"
   },
   "icons": {
-    "16": "icons/coffee.svg"
+    "48": "icons/coffee.svg"
   },
   "default_locale": "en",
   "permissions": ["storage", "bookmarks", "tabs", "activeTab", "contextMenus"],
@@ -21,7 +21,7 @@
     "browser_style": true,
     "default_area": "navbar",
     "default_icon": {
-      "16": "icons/coffee.svg"
+      "48": "icons/coffee.svg"
     },
     "default_title": "__MSG_extensionActionTitle__"
   },

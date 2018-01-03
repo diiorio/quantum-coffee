@@ -287,6 +287,45 @@
     "message": "Edit",
     "description": "Label for the Days view save edited URL button."
   },
+  "errorIllegalUrl": {
+    "message": "Quantum Coffee cannot open $URL$.",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "about:config"
+      }
+    }
+  },
+  "errorInvalidScheme": {
+    "message": "Quantum Coffee cannot open $SCHEME$ URLs.",
+    "description": "Warning message for invalid URL scheme entries.",
+    "placeholders": {
+      "scheme": {
+        "content": "$1",
+        "example": "javascript:"
+      }
+    }
+  },
+  "errorInvalidUrl": {
+    "message": "$URL$ is not a valid URL.",
+    "description": "Error message for generic invalid URLs.",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "malformed/url"
+      }
+    }
+  },
+  "errorNoScheme": {
+    "message": "$URL$ does not have a scheme. (Try adding http:// or https:// to the start.)",
+    "description": "Error message for URLs that are missing a scheme.",
+    "placeholders": {
+      "url": {
+        "content": "$1",
+        "example": "example.com"
+      }
+    }
+  },
   "extantEntry": {
     "message": "Entry for $PAGE$ already exists.",
     "description": "Message to alert user that a page already has an existing entry.",
@@ -294,16 +333,6 @@
       "page": {
         "content": "$1",
         "example": "https://example.com"
-      }
-    }
-  },
-  "invalidScheme": {
-    "message": "Quantum Coffee cannot open $SCHEME$ URLs.",
-    "description": "Warning message for invalid URL scheme entries.",
-    "placeholders": {
-      "scheme": {
-        "content": "$1",
-        "example": "javascript:"
       }
     }
   },
@@ -322,6 +351,18 @@
   "pagesViewButton": {
     "message": "Pages",
     "description": "Label for the button to choose the Pages view."
+  },
+  "popupEditPrefs": {
+    "message": "Edit Preferences",
+    "description": "Text of the popup button to open the extension options page."
+  },
+  "popupHeader": {
+    "message": "Quantum Coffee Error",
+    "description": "Header text for the popup shown when pages fail to load."
+  },
+  "popupIgnoreWarning": {
+    "message": "Ignore Warning",
+    "description": "Text of the popup button to ignore the warnings in the popup."
   },
   "randomize": {
     "message": "Randomize page order",
