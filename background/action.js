@@ -9,22 +9,42 @@
     // Pages have bit flags set for each day: Sunday = 1 (1 << 0), Saturday = 64 (1 << 6)
     const today = 1 << new Date().getDay()
     const stored = await browser.storage.sync.get({
-      pages: {},
       order: [],
-      randomize: false,
-      closeTabs: false
+      pages: {},
+      view: 'days',
+      options: {
+        randomize: false,
+        closeTabs: false
+      },
+      // REMOVE in future - v1.0.1 legacy options
+      randomize: null,
+      closeTabs: null
     })
-    const settings = new Settings(stored.pages, stored.order)
+
+    const options = stored.options
+    let settings = new Settings(stored.pages, stored.order)
+
+    // REMOVE in future - v1.0.1 options compatibility
+    if (typeof stored.randomize === 'boolean') {
+      options.randomize = stored.randomize
+      browser.storage.sync.remove('randomize')
+      browser.storage.sync.set({options}).catch(console.error)
+    }
+    if (typeof stored.closeTabs === 'boolean') {
+      options.closeTabs = stored.closeTabs
+      browser.storage.sync.remove('closeTabs')
+      browser.storage.sync.set({options}).catch(console.error)
+    }
     const arr = settings.order
     // Randomize order of pages
-    if (stored.randomize) {
+    if (options.randomize) {
       for (let i = arr.length - 1; i > 0; i -= 1) {
         const j = Math.random() * (i + 1) | 0
         ;[arr[i], arr[j]] = [arr[j], arr[i]]
       }
     }
     // Close open tabs
-    if (stored.closeTabs) {
+    if (options.closeTabs) {
       const openTabs = await browser.tabs.query({currentWindow: true})
       browser.tabs.remove(openTabs.map(tab => tab.id))
     }

@@ -22,13 +22,12 @@
   const pagesView = document.getElementById('pages-view')
   const pageAddBtn = document.getElementById('page-add-btn')
   const pageTable = pagesView.querySelector('.table')
-  const randomizeBox = document.getElementById('randomize')
-  const closeTabsBox = document.getElementById('close-tabs')
   const bookmarksInput = document.getElementById('bookmarks-folder')
   const bookmarksImportBtn = document.getElementById('bookmarks-import')
   const bookmarksExportBtn = document.getElementById('bookmarks-export')
   const bookmarksMessage = document.getElementById('bookmarks-message')
   const bookmarksHelpBtn = document.getElementById('bookmarks-help')
+  const optionsContainer = document.getElementById('options-container')
 
   /**
    * Disable an element and styles it as such.
@@ -524,6 +523,18 @@
   }
 
   /**
+   * Save simple options.
+   * @param {Event}
+   */
+  function saveOptions (e) {
+    const input = e.target
+    if (input.type === 'checkbox') {
+      options[e.target.id] = e.target.checked
+    }
+    save('options', options)
+  }
+
+  /**
    * Swaps the order of two page options and their corresponding settings.
    * @param {HTMLOptionElement} first - The option that will be first.
    * @param {HTMLOptionElement} second - The option that will be second.
@@ -689,19 +700,33 @@
   const stored = await browser.storage.sync.get({
     order: [],
     pages: {},
-    randomize: false,
-    closeTabs: false,
-    view: 'days'
+    view: 'days',
+    options: {
+      randomize: false,
+      closeTabs: false
+    },
+    // REMOVE in future - legacy v1.0.1
+    randomize: null,
+    closeTabs: null
   })
 
+  const options = stored.options
   let settings = new Settings(stored.pages, stored.order)
 
-  if (stored.randomize) {
-    randomizeBox.checked = true
+  // REMOVE in future - v1.0.1 options compatibility
+  if (typeof stored.randomize === 'boolean') {
+    options.randomize = stored.randomize
+    browser.storage.sync.remove('randomize')
+    save('options', options)
+  }
+  if (typeof stored.closeTabs === 'boolean') {
+    options.closeTabs = stored.closeTabs
+    browser.storage.sync.remove('closeTabs')
+    save('options', options)
   }
 
-  if (stored.closeTabs) {
-    closeTabsBox.checked = true
+  for (const checkbox of optionsContainer.querySelectorAll('.checkbox')) {
+    checkbox.checked = options[checkbox.id]
   }
 
   if (stored.view === 'days') {
@@ -724,8 +749,7 @@
   dayEditSave.addEventListener('click', saveEdit)
   dayUpBtn.addEventListener('click', shiftPagesUp)
   dayDownBtn.addEventListener('click', shiftPagesDown)
-  randomizeBox.addEventListener('change', e => save('randomize', randomizeBox.checked))
-  closeTabsBox.addEventListener('change', e => save('closeTabs', closeTabsBox.checked))
+  optionsContainer.addEventListener('change', saveOptions)
   bookmarksInput.addEventListener('keyup', toggleBookmarkButtons)
   bookmarksImportBtn.addEventListener('click', importBookmarks)
   bookmarksExportBtn.addEventListener('click', exportBookmarks)
