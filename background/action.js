@@ -14,7 +14,13 @@
       view: 'days',
       options: {
         randomize: false,
-        closeTabs: false
+        shouldCloseTabs: true,
+        closeTabs: 'newtab',
+        openAsPinned: false,
+        skipOpen: false,
+        skipWindow: 'active',
+        reloadOpen: false,
+        reloadTabs: 'all'
       },
       // REMOVE in future - v1.0.1 legacy options
       randomize: null,
@@ -31,7 +37,7 @@
       browser.storage.sync.set({options}).catch(console.error)
     }
     if (typeof stored.closeTabs === 'boolean') {
-      options.closeTabs = stored.closeTabs
+      options.shouldCloseTabs = stored.closeTabs
       browser.storage.sync.remove('closeTabs')
       browser.storage.sync.set({options}).catch(console.error)
     }
@@ -44,7 +50,7 @@
       }
     }
     // Close open tabs
-    if (options.closeTabs) {
+    if (options.shouldCloseTabs) {
       const openTabs = await browser.tabs.query({currentWindow: true})
       browser.tabs.remove(openTabs.map(tab => tab.id))
     }

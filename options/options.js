@@ -1,8 +1,8 @@
 /* eslint-env webextensions */
 /* global Settings, DAYS, NAMES, ANY, DAILY, validate */
 /**
- * Load the saved preferences and add event listeners to the page.
- */
+* Load the saved preferences and add event listeners to the page.
+*/
 ;(async function initialize () {
   'use strict'
   // Interface elements to be listened / manipulated
@@ -22,12 +22,12 @@
   const pagesView = document.getElementById('pages-view')
   const pageAddBtn = document.getElementById('page-add-btn')
   const pageTable = pagesView.querySelector('.table')
+  const optionsContainer = document.getElementById('options-container')
   const bookmarksInput = document.getElementById('bookmarks-folder')
   const bookmarksImportBtn = document.getElementById('bookmarks-import')
   const bookmarksExportBtn = document.getElementById('bookmarks-export')
   const bookmarksMessage = document.getElementById('bookmarks-message')
   const bookmarksHelpBtn = document.getElementById('bookmarks-help')
-  const optionsContainer = document.getElementById('options-container')
 
   /**
    * Disable an element and styles it as such.
@@ -48,6 +48,48 @@
     elt.disabled = false
     elt.classList.remove('disabled')
     if (typeof txt === 'string' && elt.tagName === 'INPUT' && elt.type === 'text') elt.value = txt
+  }
+
+  /**
+   * Disable the dependent options of an element.
+   * @param {HTMLElement} dependency - The element that has dependent options.
+   * @param {*} state - The dependency
+   */
+  function disableDependents (dependency, state) {
+    const dependents = JSON.parse(dependency.dataset.dependents)
+    Object.keys(dependents).forEach(selector => {
+      const dep = dependents[selector]
+      for (const elt of optionsContainer.querySelectorAll(selector)) {
+        const action = dep[state]
+        if (action) {
+          if (action.hasOwnProperty('checked')) {
+            elt.checked = action.checked
+          }
+          if (action.hasOwnProperty('value')) {
+            elt.value = action.value
+          }
+          if (action.hasOwnProperty('disabled')) {
+            (action.disabled ? disable : enable)(elt)
+          }
+        } else {
+          if (options.hasOwnProperty(elt.id)) {
+            if (elt.classList.contains('checkbox')) {
+              elt.checked = options[elt.id]
+            } else {
+              elt.value = options[elt.id]
+            }
+          } else {
+            if (elt.tagName === 'SELECT') {
+              elt.selectedIndex = 1 // Index 0 === blank
+            }
+          }
+          enable(elt)
+        }
+        if (elt.classList.contains('dependency')) {
+          disableDependents(elt, elt.classList.contains('checkbox') ? elt.checked : elt.value)
+        }
+      }
+    })
   }
 
   /**
@@ -141,7 +183,7 @@
       for (const page of list) {
         if (extant.has(page)) {
           const row = extant.get(page)
-          for (const checkbox of row.querySelectorAll('.checkbox')) {
+          for (const checkbox of row.getElementsByClassName('checkbox')) {
             checkbox.checked = settings.pageOnDay(page, +checkbox.value)
           }
           pageTable.appendChild(row)
@@ -268,7 +310,7 @@
     const day = +input.value
     if (input.checked) settings.addDay(page, day)
     else settings.removeDay(page, day)
-    for (const checkbox of row.querySelectorAll('.checkbox')) {
+    for (const checkbox of row.getElementsByClassName('checkbox')) {
       checkbox.checked = settings.pageOnDay(page, +checkbox.value)
     }
     settings.save()
@@ -339,7 +381,7 @@
       // just blank out the inputs and checkboxes.
       input.value = ''
       input.saved = ''
-      const checkboxes = row.querySelectorAll('.checkbox')
+      const checkboxes = row.getElementsByClassName('checkbox')
       for (const checkbox of checkboxes) {
         checkbox.checked = false
       }
@@ -528,8 +570,11 @@
    */
   function saveOptions (e) {
     const input = e.target
-    if (input.type === 'checkbox') {
-      options[e.target.id] = e.target.checked
+    const key = input.id
+    const value = input.classList.contains('checkbox') ? input.checked : input.value
+    options[key] = value
+    if (input.classList.contains('dependency')) {
+      disableDependents(input, value)
     }
     save('options', options)
   }
@@ -703,7 +748,13 @@
     view: 'days',
     options: {
       randomize: false,
-      closeTabs: false
+      shouldCloseTabs: true,
+      closeTabs: 'newtab',
+      openAsPinned: false,
+      skipOpen: false,
+      skipWindow: 'active',
+      reloadOpen: false,
+      reloadTabs: 'all'
     },
     // REMOVE in future - legacy v1.0.1
     randomize: null,
@@ -725,8 +776,18 @@
     save('options', options)
   }
 
-  for (const checkbox of optionsContainer.querySelectorAll('.checkbox')) {
-    checkbox.checked = options[checkbox.id]
+  for (const box of optionsContainer.getElementsByClassName('checkbox')) {
+    if (!box.disabled && options[box.id]) {
+      box.checked = true
+    }
+    if (box.classList.contains('dependency')) {
+      disableDependents(box, box.checked)
+    }
+  }
+  for (const select of optionsContainer.getElementsByTagName('select')) {
+    if (!select.disabled) {
+      select.value = options[select.id]
+    }
   }
 
   if (stored.view === 'days') {

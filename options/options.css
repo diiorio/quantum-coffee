@@ -7,11 +7,9 @@ body {
 .hidden {
   display: none;
 }
-
 .padded {
   margin-top: 1ex;
 }
-
 /* Day View */
 #days-view {
   white-space: nowrap;
@@ -23,11 +21,9 @@ body {
   width: 40em;
   overflow-x: scroll;
 }
-
 #day-page-list:hover, #day-page-list:active {
   background-color: #fbfbfb; /* Override .browser-style */
 }
-
 #day-sidebar {
   vertical-align: top;
   display: inline-block;
@@ -38,45 +34,55 @@ body {
   white-space: nowrap;
   display: table;
 }
-
 .row {
   display: table-row;
   border: 1px solid red;
 }
-
 .cell {
   display: table-cell;
   text-align: center;
   padding: 2px 4px;
 }
-
 .row label::before {
   margin: 1px; /* Override .browser-style */
 }
-
 .header .cell {
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
-
 .divider {
   border-left: 1px solid rgba(0, 0, 0, 0.15);
 }
-
 .up-down {
   vertical-align: top;
 }
-
 .up-down .pg-up, .up-down .pg-down {
   height: auto;
   font-size: 1ex;
   margin: 0;
 }
-
 .wide {
   border-right: 1px solid rgba(0, 0, 0, 0.15);
 }
-
 .wide input {
   width: 17em;
   margin-right: 0.5ex;
+}
+/* Additional Options */
+#options-container label.block {
+  margin: 0.5ex 0;
+}
+#options-container input.disabled + label {
+  color: gray;
+}
+#options-container input.disabled + label::before {
+  background-color: #eee;
+}
+#options-container input.disabled + label:active::before {
+  border-color: #b1b1b1; /* Override .browser-style */
+}
+#options-container select {
+  margin: 0;
+}
+#options-container label.indent {
+  margin-left: 2em;
 }
