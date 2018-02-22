@@ -29,7 +29,7 @@
 
     const options = stored.options
     let settings = new Settings(stored.pages, stored.order)
-    const qcUrls = settings.order
+    const toOpen = settings.getPages(today)
     const qcTabs = []
 
     // REMOVE in future - v1.0.1 options compatibility
@@ -43,13 +43,8 @@
       browser.storage.sync.remove('closeTabs')
       browser.storage.sync.set({options}).catch(console.error)
     }
-    // Randomize order of pages
-    if (options.randomize) {
-      for (let i = qcUrls.length - 1; i > 0; i -= 1) {
-        const j = Math.random() * (i + 1) | 0
-        ;[qcUrls[i], qcUrls[j]] = [qcUrls[j], qcUrls[i]]
-      }
-    }
+
+    // Skip opening pages, but maybe reload
     if (options.skipOpen) {
       const search = {
         // `false` triggers filtering, `null` does not
@@ -58,11 +53,11 @@
       const tabs = await browser.tabs.query(search)
       const toReload = []
       for (const tab of tabs) {
-        const idx = qcUrls.indexOf(tab.url)
+        const idx = toOpen.indexOf(tab.url)
         if (idx > -1) {
           toReload.push(tab)
-          qcTabs.push(tab)
-          qcUrls.splice(idx, 1)
+          qcTabs.push(tab.id)
+          toOpen.splice(idx, 1)
         }
       }
       if (options.reloadOpen) {
@@ -74,23 +69,61 @@
         }
       }
     }
-    // Close open tabs
-    if (options.shouldCloseTabs) {
-      const openTabs = await browser.tabs.query({currentWindow: true})
-      browser.tabs.remove(openTabs.map(tab => tab.id))
+
+    // Randomize order of pages
+    if (options.randomize) {
+      for (let i = toOpen.length - 1; i > 0; i -= 1) {
+        const j = Math.random() * (i + 1) | 0
+        ;[toOpen[i], toOpen[j]] = [toOpen[j], toOpen[i]]
+      }
     }
+
     // Open pages, with error handling only once all tabs are open
-    const pages = settings.getPages(today)
-    const result = await Promise.all(pages.map(page => {
+    const result = await Promise.all(toOpen.map(page => {
       // Convert rejection errors into resolved objects with `error` property to allow all errors
       // to be seen, instead of just the first one rejected
-      return browser.tabs.create({url: page}).catch(e => ({error: e}))
+      return browser.tabs.create({
+        url: page,
+        active: false,
+        pinned: options.openAsPinned
+      })
+      .then(tab => qcTabs.push(tab.id), e => ({error: e}))
     }))
+
     const errors = []
     for (const res of result) {
-      if (res.error) errors.push(res.error)
+      if (res && res.error) {
+        errors.push(res.error)
+      }
     }
-    if (errors.length) handleOpenErrors(errors)
+    if (errors.length) {
+      handleOpenErrors(errors)
+    }
+
+    // Close open tabs
+    if (options.shouldCloseTabs) {
+      const opt = options.closeTabs
+      // `false` triggers filtering, `null` does not
+      const search = {
+        active: opt === 'active' || opt === 'newtab' || null,
+        currentWindow: opt !== 'all' || null,
+        pinned: (opt === 'active' || opt === 'unpinned') ? false : null
+      }
+      const openTabs = await browser.tabs.query(search)
+      if (opt === 'newtab') {
+        if (openTabs[0].url === 'about:newtab') {
+          browser.tabs.remove(openTabs[0].id)
+        }
+      } else {
+        const toClose = []
+        for (const tab of openTabs) {
+          if (qcTabs.indexOf(tab.id) === -1) {
+            toClose.push(tab.id)
+          }
+        }
+        browser.tabs.remove(toClose)
+      }
+    }
   }
 
   /**
