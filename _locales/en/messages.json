@@ -255,31 +255,31 @@
     "description": "Help message explaining how bookmarks export works."
   },
 
-  "closeTabs-active": {
+  "closeTabs_active": {
     "message": "active tab",
     "description": "Label for the choice to only close the active tab."
   },
-  "closeTabs-all": {
+  "closeTabs_all": {
     "message": "all tabs in all windows",
     "description": "Label for the choice to close all tabs."
   },
-  "closeTabs-newtab": {
+  "closeTabs_newtab": {
     "message": "new tab only",
     "description": "Label for the choice to only close the active tab if it's about:newtab."
   },
-  "closeTabs-preText": {
+  "closeTabs_preText": {
     "message": "Close",
     "description": "Text for the option to close windows, before the select box."
   },
-  "closeTabs-postText": {
+  "closeTabs_postText": {
     "message": "on open",
     "description": "Text for the option to close windows, after the select box."
   },
-  "closeTabs-unpinned": {
+  "closeTabs_unpinned": {
     "message": "unpinned tabs",
     "description": "Label for the choice to close only unpinned tabs."
   },
-  "closeTabs-window": {
+  "closeTabs_window": {
     "message": "all tabs in active window",
     "description": "Label for the choice to close all tabs in the active window."
   },
@@ -396,23 +396,23 @@
     "message": "Randomize page order",
     "description": "Label for the randomize check box."
   },
-  "reloadOpen-preText": {
+  "reloadOpen_preText": {
     "message": "Reload open pages in",
     "description": "Text for the option to skip reloading pinned tabs, before the select box."
   },
-  "reloadOpen-postText": {
+  "reloadOpen_postText": {
     "message": "tabs",
     "description": "Text for the option to skip reloading pinned tabs, after the select box."
   },
-  "reloadTabs-all": {
+  "reloadTabs_all": {
     "message": "all",
     "description": "Text for the option to reload all tabs."
   },
-  "reloadTabs-pinned": {
+  "reloadTabs_pinned": {
     "message": "pinned",
     "description": "Text for the option to reload only pinned tabs."
   },
-  "reloadTabs-unpinned": {
+  "reloadTabs_unpinned": {
     "message": "unpinned",
     "description": "Text for the option to reload only unpinned tabs."
   },
@@ -428,11 +428,11 @@
     "message": "Don't open pages already open in",
     "description": "Label for the option to skip already open pages."
   },
-  "skipWindow-active": {
+  "skipWindow_active": {
     "message": "active window",
     "description": "Label for the option to skip pages already open in the active window."
   },
-  "skipWindow-all": {
+  "skipWindow_all": {
     "message": "all windows",
     "description": "Label for the option to skip pages already open in any window."
   },
