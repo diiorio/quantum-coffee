@@ -29,6 +29,8 @@
 
     const options = stored.options
     let settings = new Settings(stored.pages, stored.order)
+    const qcUrls = settings.order
+    const qcTabs = []
 
     // REMOVE in future - v1.0.1 options compatibility
     if (typeof stored.randomize === 'boolean') {
@@ -41,12 +43,35 @@
       browser.storage.sync.remove('closeTabs')
       browser.storage.sync.set({options}).catch(console.error)
     }
-    const arr = settings.order
     // Randomize order of pages
     if (options.randomize) {
-      for (let i = arr.length - 1; i > 0; i -= 1) {
+      for (let i = qcUrls.length - 1; i > 0; i -= 1) {
         const j = Math.random() * (i + 1) | 0
-        ;[arr[i], arr[j]] = [arr[j], arr[i]]
+        ;[qcUrls[i], qcUrls[j]] = [qcUrls[j], qcUrls[i]]
+      }
+    }
+    if (options.skipOpen) {
+      const search = {
+        // `false` triggers filtering, `null` does not
+        currentWindow: options.skipWindow === 'active' || null
+      }
+      const tabs = await browser.tabs.query(search)
+      const toReload = []
+      for (const tab of tabs) {
+        const idx = qcUrls.indexOf(tab.url)
+        if (idx > -1) {
+          toReload.push(tab)
+          qcTabs.push(tab)
+          qcUrls.splice(idx, 1)
+        }
+      }
+      if (options.reloadOpen) {
+        const o = options.reloadTabs
+        for (const tab of toReload) {
+          if (o === 'all' || (o === 'pinned' && tab.pinned) || (o === 'unpinned' && !tab.pinned)) {
+            browser.tabs.reload(tab.id)
+          }
+        }
       }
     }
     // Close open tabs
