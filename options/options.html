@@ -13,39 +13,39 @@
 </head>
 <body>
   <div class="browser-style">
-    <span class="i18n" data-i18n-message="viewSelector"></span>
-    <button id="days-view-btn" class="i18n browser-style" data-i18n-message="daysViewButton"></button>
-    <button id="pages-view-btn" class="browser-style i18n" data-i18n-message="pagesViewButton"></button>
+    <span class="i18n" data-i18n-msg="viewSelector"></span>
+    <button id="days-view-btn" class="browser-style i18n" data-i18n-msg="daysViewButton"></button>
+    <button id="pages-view-btn" class="browser-style i18n" data-i18n-msg="pagesViewButton"></button>
   </div>
   <div id="days-view" class="hidden">
     <select id="day-menu" class="block browser-style hover">
-      <option value="1" class="i18n" data-i18n-message="daysViewSunday"></option>
-      <option value="2" class="i18n" data-i18n-message="daysViewMonday"></option>
-      <option value="4" class="i18n" data-i18n-message="daysViewTuesday"></option>
-      <option value="8" class="i18n" data-i18n-message="daysViewWednesday"></option>
-      <option value="16" class="i18n" data-i18n-message="daysViewThursday"></option>
-      <option value="32" class="i18n" data-i18n-message="daysViewFriday"></option>
-      <option value="64" class="i18n" data-i18n-message="daysViewSaturday"></option>
+      <option value="1" class="i18n" data-i18n-msg="daysViewSunday"></option>
+      <option value="2" class="i18n" data-i18n-msg="daysViewMonday"></option>
+      <option value="4" class="i18n" data-i18n-msg="daysViewTuesday"></option>
+      <option value="8" class="i18n" data-i18n-msg="daysViewWednesday"></option>
+      <option value="16" class="i18n" data-i18n-msg="daysViewThursday"></option>
+      <option value="32" class="i18n" data-i18n-msg="daysViewFriday"></option>
+      <option value="64" class="i18n" data-i18n-msg="daysViewSaturday"></option>
       <option disabled>─────</option>
-      <option value="127" class="i18n" data-i18n-message="daysViewDaily" selected></option>
-      <option value="42" class="i18n" data-i18n-message="daysViewMWF"></option>
-      <option value="20" class="i18n" data-i18n-message="daysViewTTh"></option>
-      <option value="62" class="i18n" data-i18n-message="daysViewWeekdays"></option>
-      <option value="65" class="i18n" data-i18n-message="daysViewWeekends"></option>
+      <option value="127" class="i18n" data-i18n-msg="daysViewDaily" selected></option>
+      <option value="42" class="i18n" data-i18n-msg="daysViewMWF"></option>
+      <option value="20" class="i18n" data-i18n-msg="daysViewTTh"></option>
+      <option value="62" class="i18n" data-i18n-msg="daysViewWeekdays"></option>
+      <option value="65" class="i18n" data-i18n-msg="daysViewWeekends"></option>
     </select>
     <select id="day-page-list" class="browser-style" multiple>
     </select>
     <div id="day-sidebar">
       <button id="day-up" class="block browser-style disabled" disabled>&#x25B2;</button>
       <button id="day-down" class="block browser-style disabled" disabled>&#x25BC;</button>
-      <button id="day-edit-loader" class="block browser-style disabled i18n" data-i18n-message="editLoader" disabled></button>
-      <button id="day-delete" class="block browser-style disabled i18n" data-i18n-message="deleteButton" disabled></button>
+      <button id="day-edit-loader" class="block browser-style disabled i18n" data-i18n-msg="editLoader" disabled></button>
+      <button id="day-delete" class="block browser-style disabled i18n" data-i18n-msg="deleteButton" disabled></button>
     </div>
     <div class="browser-style">
-      <input id="day-add-input" class="i18n" type="text" data-i18n-type="placeholder" data-i18n-message="daysNewPagePlaceholder">
-      <button id="day-add-btn" class="browser-style disabled i18n" data-i18n-message="daysAddButton" disabled></button>
-      <input id="day-edit-input" class="disabled i18n" type="text" data-i18n-type="placeholder" data-i18n-message="editPagePlaceholder" disabled>
-      <button id="day-edit-save" class="browser-style disabled i18n" data-i18n-message="editSaver" disabled></button>
+      <input id="day-add-input" class="i18n" type="text" data-i18n-type="placeholder" data-i18n-msg="daysNewPagePlaceholder">
+      <button id="day-add-btn" class="browser-style disabled i18n" data-i18n-msg="daysAddButton" disabled></button>
+      <input id="day-edit-input" class="disabled i18n" type="text" data-i18n-type="placeholder" data-i18n-msg="editPagePlaceholder" disabled>
+      <button id="day-edit-save" class="browser-style disabled i18n" data-i18n-msg="editSaver" disabled></button>
     </div>
   </div>
 
@@ -53,67 +53,67 @@
     <div class="table">
       <div class="header row">
         <div class="cell">◆</div>
-        <div class="wide cell i18n" data-i18n-message="pageColumnHeader"></div>
-        <div class="cell i18n" data-i18n-message="pagesViewSunday"></div>
-        <div class="cell i18n" data-i18n-message="pagesViewMonday"></div>
-        <div class="cell i18n" data-i18n-message="pagesViewTuesday"></div>
-        <div class="cell i18n" data-i18n-message="pagesViewWednesday"></div>
-        <div class="cell i18n" data-i18n-message="pagesViewThursday"></div>
-        <div class="cell i18n" data-i18n-message="pagesViewFriday"></div>
-        <div class="cell i18n" data-i18n-message="pagesViewSaturday"></div>
-        <div class="divider cell i18n" data-i18n-message="pagesViewDaily"></div>
-        <div class="cell i18n" data-i18n-message="pagesViewMWF"></div>
-        <div class="cell i18n" data-i18n-message="pagesViewTTh"></div>
-        <div class="cell i18n" data-i18n-message="pagesViewWeekdays"></div>
-        <div class="cell i18n" data-i18n-message="pagesViewWeekends"></div>
+        <div class="cell i18n wide" data-i18n-msg="pageColumnHeader"></div>
+        <div class="cell i18n" data-i18n-msg="pagesViewSunday"></div>
+        <div class="cell i18n" data-i18n-msg="pagesViewMonday"></div>
+        <div class="cell i18n" data-i18n-msg="pagesViewTuesday"></div>
+        <div class="cell i18n" data-i18n-msg="pagesViewWednesday"></div>
+        <div class="cell i18n" data-i18n-msg="pagesViewThursday"></div>
+        <div class="cell i18n" data-i18n-msg="pagesViewFriday"></div>
+        <div class="cell i18n" data-i18n-msg="pagesViewSaturday"></div>
+        <div class="cell divider i18n" data-i18n-msg="pagesViewDaily"></div>
+        <div class="cell i18n" data-i18n-msg="pagesViewMWF"></div>
+        <div class="cell i18n" data-i18n-msg="pagesViewTTh"></div>
+        <div class="cell i18n" data-i18n-msg="pagesViewWeekdays"></div>
+        <div class="cell i18n" data-i18n-msg="pagesViewWeekends"></div>
       </div>
     </div>
-    <button id="page-add-btn" class="browser-style i18n" data-i18n-message="pagesAddButton"></button>
+    <button id="page-add-btn" class="browser-style i18n" data-i18n-msg="pagesAddButton"></button>
   </div>
   <div id="options-container" class="browser-style">
     <input id="randomize" type="checkbox" class="checkbox">
-    <label for="randomize" class="block i18n" data-i18n-message="randomize"></label>
+    <label for="randomize" class="block i18n" data-i18n-msg="randomize"></label>
     <div class="browser-style">
       <input id="shouldCloseTabs" type="checkbox" class="checkbox dependency" data-dependents="{&quot;#closeTabs&quot;:{&quot;false&quot;:{&quot;disabled&quot;:1,&quot;value&quot;:&quot;&quot;}}}">
-      <label for="shouldCloseTabs" class="i18n" data-i18n-message="closeTabs-preText"></label>
+      <label for="shouldCloseTabs" class="i18n" data-i18n-msg="closeTabs-preText"></label>
       <select id="closeTabs" class="browser-style hover">
         <option class="hidden"></option>
-        <option value="newtab" class="i18n" data-i18n-message="closeTabs-newtab" selected></option>
-        <option value="active" class="i18n" data-i18n-message="closeTabs-active"></option>
-        <option value="unpinned" class="i18n" data-i18n-message="closeTabs-unpinned"></option>
-        <option value="window" class="i18n" data-i18n-message="closeTabs-window"></option>
-        <option value="all" class="i18n" data-i18n-message="closeTabs-all"></option>
+        <option value="newtab" class="i18n" data-i18n-msg="closeTabs-newtab" selected></option>
+        <option value="active" class="i18n" data-i18n-msg="closeTabs-active"></option>
+        <option value="unpinned" class="i18n" data-i18n-msg="closeTabs-unpinned"></option>
+        <option value="window" class="i18n" data-i18n-msg="closeTabs-window"></option>
+        <option value="all" class="i18n" data-i18n-msg="closeTabs-all"></option>
       </select>
-      <span class="i18n" data-i18n-message="closeTabs-postText"></span>
+      <span class="i18n" data-i18n-msg="closeTabs-postText"></span>
     </div>
     <input id="openAsPinned" type="checkbox" class="checkbox">
-    <label for="openAsPinned" class="block i18n" data-i18n-message="openAsPinned"></label>
+    <label for="openAsPinned" class="block i18n" data-i18n-msg="openAsPinned"></label>
     <div class="browser-style">
       <input id="skipOpen" type="checkbox" class="checkbox dependency" data-dependents="{&quot;#skipWindow&quot;:{&quot;false&quot;:{&quot;disabled&quot;:1,&quot;value&quot;:&quot;&quot;}},&quot;#reloadOpen&quot;:{&quot;false&quot;:{&quot;disabled&quot;:1,&quot;checked&quot;:0}}}">
-      <label for="skipOpen" class="i18n" data-i18n-message="skipOpen"></label>
+      <label for="skipOpen" class="i18n" data-i18n-msg="skipOpen"></label>
       <select id="skipWindow" class="browser-style hover">
         <option class="hidden"></option>
-        <option value="active" class="i18n" data-i18n-message="skipWindow-active"></option>
-        <option value="all" class="i18n" data-i18n-message="skipWindow-all"></option>
+        <option value="active" class="i18n" data-i18n-msg="skipWindow-active"></option>
+        <option value="all" class="i18n" data-i18n-msg="skipWindow-all"></option>
       </select>
     </div>
     <div class="browser-style">
       <input id="reloadOpen" type="checkbox" class="checkbox dependency" data-dependents="{&quot;#reloadTabs&quot;:{&quot;false&quot;:{&quot;disabled&quot;:1,&quot;value&quot;:&quot;&quot;}}}">
-      <label for="reloadOpen" class="i18n indent" data-i18n-message="reloadOpen-preText"></label>
+      <label for="reloadOpen" class="i18n indent" data-i18n-msg="reloadOpen-preText"></label>
       <select id="reloadTabs" class="browser-style hover">
         <option class="hidden"></option>
-        <option value="pinned" class="i18n" data-i18n-message="reloadTabs-pinned"></option>
-        <option value="unpinned" class="i18n" data-i18n-message="reloadTabs-unpinned"></option>
-        <option value="all" class="i18n" data-i18n-message="reloadTabs-all"></option>
+        <option value="pinned" class="i18n" data-i18n-msg="reloadTabs-pinned"></option>
+        <option value="unpinned" class="i18n" data-i18n-msg="reloadTabs-unpinned"></option>
+        <option value="all" class="i18n" data-i18n-msg="reloadTabs-all"></option>
       </select>
-      <span class="i18n" data-i18n-message="reloadOpen-postText"></span>
+      <span class="i18n" data-i18n-msg="reloadOpen-postText"></span>
     </div>
   </div>
-  <div class="padded browser-style">
-    <input id="bookmarks-folder" class="i18n" type="text" data-i18n-type="placeholder" data-i18n-message="bookmarkPlaceholder">
-    <button id="bookmarks-import" class="browser-style disabled i18n" data-i18n-message="bookmarksImportButton" disabled></button>
-    <button id="bookmarks-export" class="browser-style disabled i18n" data-i18n-message="bookmarksExportButton" disabled></button>
-    <button id="bookmarks-help" class="browser-style i18n" data-i18n-message="bookmarksHelpButton"></button>
+  <div class="browser-style padded">
+    <input id="bookmarks-folder" class="i18n" type="text" data-i18n-type="placeholder" data-i18n-msg="bookmarkPlaceholder">
+    <button id="bookmarks-import" class="browser-style disabled i18n" data-i18n-msg="bookmarksImportButton" disabled></button>
+    <button id="bookmarks-export" class="browser-style disabled i18n" data-i18n-msg="bookmarksExportButton" disabled></button>
+    <button id="bookmarks-help" class="browser-style i18n" data-i18n-msg="bookmarksHelpButton"></button>
     <div id="bookmarks-message"></div>
   </div>
 </body>
