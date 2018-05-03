@@ -27,6 +27,11 @@
       closeTabs: null
     })
 
+    // Redirect to options page if nothing at all configured
+    if (stored.order.length === 0) {
+      return browser.runtime.openOptionsPage()
+    }
+
     const options = stored.options
     let settings = new Settings(stored.pages, stored.order)
     const toOpen = settings.getPages(today)
