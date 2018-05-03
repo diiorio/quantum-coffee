@@ -340,6 +340,10 @@
       }
     }
   },
+  "errorNoPages": {
+    "message": "You do not have any pages configured for today.",
+    "description": "Error message for attempting to open routine on a day with no pages set."
+  },
   "errorNoScheme": {
     "message": "$URL$ does not have a scheme. (Try adding http:// or https:// to the start.)",
     "description": "Error message for URLs that are missing a scheme.",
