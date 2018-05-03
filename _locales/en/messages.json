@@ -313,6 +313,7 @@
   },
   "errorIllegalUrl": {
     "message": "Quantum Coffee cannot open $URL$.",
+    "description": "Message to show when `Illegal URL:` error is thrown.",
     "placeholders": {
       "url": {
         "content": "$1",
