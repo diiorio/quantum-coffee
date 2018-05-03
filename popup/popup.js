@@ -9,7 +9,10 @@
   }
   // Add `Edit Preferences` action
   const prefsBtn = document.getElementById('editPrefs')
-  prefsBtn.addEventListener('click', e => browser.runtime.openOptionsPage())
+  prefsBtn.addEventListener('click', e => {
+    browser.runtime.openOptionsPage()
+    window.close()
+  })
   // Add `Close Warning` action
   const ignoreBtn = document.getElementById('ignoreWarning')
   ignoreBtn.addEventListener('click', async e => {
