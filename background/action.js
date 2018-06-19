@@ -36,6 +36,7 @@
     let settings = new Settings(stored.pages, stored.order)
     const toOpen = settings.getPages(today)
     const qcTabs = []
+    const activeWindow = await browser.windows.getLastFocused()
 
     // Show an error message if no pages configured for today
     if (toOpen.length === 0) {
@@ -94,6 +95,7 @@
       // to be seen, instead of just the first one rejected
       return browser.tabs.create({
         url: page,
+        windowId: activeWindow.id,
         active: false,
         pinned: options.openAsPinned
       })
